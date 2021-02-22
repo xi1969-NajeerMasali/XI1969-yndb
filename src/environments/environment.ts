@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  budgetUrl : 'https://app.youneedabudget.com/4dd5b504-888b-4050-9831-6186f5bc8902/budget/202102'
 };
 
 /*

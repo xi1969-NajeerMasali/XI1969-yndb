@@ -9,12 +9,18 @@ import { RouterModule } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BudgetSummaryDetailsComponent } from './components/budget-summary-details/budget-summary-details.component';
+import { AccountSummaryDetailsComponent } from './components/account-summary-details/account-summary-details.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
 @NgModule({
   declarations: [
     AppComponent,
     BudgetComponent,
     AllAccountsComponent,
-    SidebarComponent
+    SidebarComponent,
+    BudgetSummaryDetailsComponent,
+    AccountSummaryDetailsComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,

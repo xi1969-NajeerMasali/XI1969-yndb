@@ -1,2 +1,51 @@
-<p>all-accounts works!</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-4">
+      <h2>All Accounts</h2>
+    </div>
+    <div class="col-8">
+      <button type="button" class="btn btn-primary" (click)="createNewAccount()">
+        Create New Account
+      </button>
+    </div>
+  </div>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>ACCOUNT</th>
+        <th>DATE</th>
+        <th>PAYEE</th>
+        <th>CATEGORY</th>
+        <th>MEMO</th>
+        <th>OUTFLOW</th>
+        <th>INFLOW</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let account of this.allAccounts">
+        <tr>
+          <td class="table-col">{{ account.name }}</td>
+          <td class="table-col">{{ todaysDate | date:'MM/dd/yyyy' }}</td>
+          <td class="table-col">{{ account.payeeName }}</td>
+          <td class="table-col">{{ account.type }}</td>
+          <td class="table-col">{{ account.note }}</td>
+          <td class="table-col">{{ account.uncleared_balance }}</td>
+          <td class="table-col">{{ account.balance }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+  <div *ngIf="formVisible">
+    <form [formGroup]="createNewAccountForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">AccountName</label>
+          <input type="email" class="form-control" formControlName="name">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+  </div>
+</div>
 <router-outlet></router-outlet>

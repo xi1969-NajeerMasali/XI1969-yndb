@@ -1,29 +1,58 @@
+
 <div class="container mt-4">
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+  <h2>All Budgets</h2>
+  <div class="form-group">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr class="table-row">
+          <th class="table-col">Name</th>
+          <th class="table-col">First Month</th>
+          <th class="table-col">Last Month</th>
+          <th class="table-col">Last Used</th>
       </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+      </thead>
+      <tbody>
+        <tr *ngFor="let budget of budgetList" class="table-row table-body" (click)="goToBudgetDetails(budget.id)">
+          <td class="table-col" style="color: blue;">{{ budget.name }}</td>
+          <td class="table-col">{{ budget.first_month | date:'MM/dd/yyyy' }}</td>
+          <td class="table-col">{{ budget.last_month | date:'MM/dd/yyyy'}}</td>
+          <td class="table-col">{{ budget.last_modified_on | date:'MM/dd/yyyy' }}</td>
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
+  <div class="form-group" *ngIf="category_groups && category_groups.length > 0">
+    <h2>Details of My Budget</h2>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th><input type="checkbox"></th>
+          <th>Category</th>
+          <th>Budgeted</th>
+          <th>Activity</th>
+          <th>Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let category of category_groups">
+          <tr>
+            <th><input type="checkbox" [checked]="category.selected" (change)="checkedCategory(category.selected)" /></th>
+            <th>{{category.name}}
+            </th>
+            <th>0</th>
+            <th>0</th>
+            <th>0</th>
+          </tr>
+          <tr *ngFor="let categories of category.categories">
+            <td><input type="checkbox" [checked]="category.selected" (change)="checkedCategory(category.selected)" /></td>
+            <td>{{categories.name}}</td>
+            <td>{{categories.budgeted}}</td>
+            <td>{{categories.activity}}</td>
+            <td>{{categories.balance}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
 </div>
 <router-outlet></router-outlet>

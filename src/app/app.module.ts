@@ -8,10 +8,11 @@ import { AppRoutingModule } from './routing/app.routing';
 import { RouterModule } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BudgetSummaryDetailsComponent } from './components/budget-summary-details/budget-summary-details.component';
 import { AccountSummaryDetailsComponent } from './components/account-summary-details/account-summary-details.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { AuthInterceptorService } from './helpers/auth-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,9 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

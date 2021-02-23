@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  budgetUrl : 'https://app.youneedabudget.com/4dd5b504-888b-4050-9831-6186f5bc8902/budget/202102'
+  baseUrl: 'https://api.youneedabudget.com/v1',
+  baseUrlCategory : 'https://api.youneedabudget.com/v1/budgets/4dd5b504-888b-4050-9831-6186f5bc8902/categories',
+  baseUrlBudget: 'https://api.youneedabudget.com/v1/budgets?include_accounts=true',
+  baseUrlAllAccounts: 'https://api.youneedabudget.com/v1/budgets/4dd5b504-888b-4050-9831-6186f5bc8902/accounts',
 };
 
 /*

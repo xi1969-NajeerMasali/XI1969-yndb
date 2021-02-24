@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
   baseUrl: 'https://api.youneedabudget.com/v1',
-  baseUrlCategory : 'https://api.youneedabudget.com/v1/budgets/4dd5b504-888b-4050-9831-6186f5bc8902/categories',
-  baseUrlBudget: 'https://api.youneedabudget.com/v1/budgets?include_accounts=true',
-  baseUrlAllAccounts: 'https://api.youneedabudget.com/v1/budgets/4dd5b504-888b-4050-9831-6186f5bc8902/accounts',
+  // baseUrlCategory : 'https://api.youneedabudget.com/v1/budgets/4dd5b504-888b-4050-9831-6186f5bc8902/categories',
+  // baseUrlBudget: 'https://api.youneedabudget.com/v1/budgets?include_accounts=true',
+  // baseUrlAllAccounts: 'https://api.youneedabudget.com/v1/budgets/4dd5b504-888b-4050-9831-6186f5bc8902/accounts',
 };
 
 /*

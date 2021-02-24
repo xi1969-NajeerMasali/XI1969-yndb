@@ -2,12 +2,16 @@
   <div class="col-2 sidenav">
     <h1 style="color: #fff; font-size: 24px;">My Budget</h1>
     <div class="budget mb-1">
-      <a routerLink="/budget" style="color: #fff; padding: 10px;text-align: center;"><i style="font-size:30px"
+      <a (click)="goToBudget()" style="color: #fff; padding: 10px;text-align: center;"><i style="font-size:30px"
           class="fa fa-home"></i>Budget</a>
     </div>
     <div class="accouts">
-      <a routerLink="/accounts" style="color: #fff; padding: 10px;text-align: center;"><i style="font-size:30px"
+      <a (click)="goToAccounts()" style="color: #fff; padding: 10px;text-align: center;"><i style="font-size:30px"
           class="fa fa-cog"></i>All Accounts</a>
+    </div>
+    <div class="accouts">
+      <a (click)="goToPayee()" style="color: #fff; padding: 10px;text-align: center;"><i style="font-size:30px"
+          class="fa fa-cog"></i>All Payees</a>
     </div>
   </div>
   <div class="col-10 right-bar">

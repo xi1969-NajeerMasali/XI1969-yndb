@@ -9,19 +9,17 @@ import { RouterModule } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { BudgetSummaryDetailsComponent } from './components/budget-summary-details/budget-summary-details.component';
-import { AccountSummaryDetailsComponent } from './components/account-summary-details/account-summary-details.component';
-import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { AuthInterceptorService } from './helpers/auth-interceptor.service';
+import { PayeeComponent } from './components/payee/payee.component';
+import { PayeeDetailsComponent } from './components/payee-details/payee-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     BudgetComponent,
     AllAccountsComponent,
     SidebarComponent,
-    BudgetSummaryDetailsComponent,
-    AccountSummaryDetailsComponent,
-    CreateAccountComponent
+    PayeeComponent,
+    PayeeDetailsComponent
   ],
   imports: [
     BrowserModule,

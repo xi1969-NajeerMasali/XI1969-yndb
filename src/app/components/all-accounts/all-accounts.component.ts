@@ -25,15 +25,10 @@ export class AllAccountsComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.getlistOfBudgets()
-  }
-
-  getlistOfBudgets(){
-    this.ynabService.getListOfbudgets().subscribe((res: any) => {
-      if(res && res.data && res.data.budgets)
-      this.budgetId = res.data.budgets[0].id
+    if (localStorage.length) {
+      this.budgetId = localStorage.getItem('budgetId');
       this.getAllAccountsData(this.budgetId)
-    })
+    }
   }
 
   getAllAccountsData(budgetId: any){
@@ -44,11 +39,10 @@ export class AllAccountsComponent implements OnInit {
       }
     })
   }
-
   createNewAccount(){
     this.formVisible = true
   }
-
+  // create new account
   onSubmit(){
     const formatData = {
       "account": {
@@ -58,7 +52,7 @@ export class AllAccountsComponent implements OnInit {
       }
     }
     this.ynabService.createNewAccount(this.budgetId, formatData).subscribe((res:any) => {
-      console.log('res', res)
+      // console.log('res', res)
       this.getAllAccountsData(this.budgetId)
       this.formVisible = false
     })

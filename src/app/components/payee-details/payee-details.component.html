@@ -1,0 +1,59 @@
+<div *ngIf="payeeTransactions">
+  <div class="table-caption">
+      <h2>All Transactions</h2>
+  </div>
+  <div *ngIf="payeeTransactions.length === 0">
+      <p>No Transaction Available for this payee!!!</p>
+  </div>
+  <div *ngIf="payeeTransactions.length > 0">
+      <div *ngFor="let transaction of payeeTransactions">
+          <h4>{{ transaction.account_name }}</h4>
+          <table class="transaction-table">
+              <tr class="table-row">
+                  <td colspan="2" class="heading" class="heading">Payee Details</td>
+              </tr>
+              <tr class="table-row">
+                  <td class="table-col">Name</td>
+                  <td class="table-col">{{ transaction.payee_name }}</td>
+              </tr>
+              <tr class="table-row">
+                  <td class="table-col">Amount</td>
+                  <td class="table-col">{{ transaction.amount }}</td>
+              </tr>
+              <tr class="table-row">
+                  <td class="table-col">Account Id</td>
+                  <td class="table-col">{{ transaction.account_id }}</td>
+              </tr>
+              <tr class="table-row">
+                  <td class="table-col">Date(MM/DD/YYYY)</td>
+                  <td class="table-col">{{ transaction.date | date:'MM/dd/yyyy' }}</td>
+              </tr>
+              <tr class="table-row">
+                  <td colspan="2" class="heading">Payee Category</td>
+              </tr>
+              <tr class="table-row">
+                  <td class="table-col">Category Name</td>
+                  <td class="table-col">{{ transaction.category_name }}</td>
+              </tr>
+              <tr class="table-row">
+                  <td class="table-col">Category Id</td>
+                  <td class="table-col">{{ transaction.category_id }}</td>
+              </tr>
+              <tr class="table-row">
+                  <td colspan="2" class="heading">Payee Transactions</td>
+              </tr>
+              <tr class="table-row">
+                  <td class="table-col">Cleared</td>
+                  <td class="table-col">{{ transaction.cleared }}</td>
+              </tr>
+              <tr class="table-row">
+                  <td class="table-col">Transfer Account Id</td>
+                  <td class="table-col">{{ transaction.transfer_account_id }}</td>
+              </tr>
+          </table>
+      </div>
+  </div>
+</div>
+<div class="spinner-container" *ngIf="!payeeTransactions">
+  <i class="pi pi-spin pi-spinner"></i>
+</div>

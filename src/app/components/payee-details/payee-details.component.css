@@ -1,0 +1,11 @@
+table .heading {
+  font-weight: bold;
+  background-color: burlywood;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 5px 10px;
+}
+
+table .table-row {
+  background-color: darkcyan;
+}

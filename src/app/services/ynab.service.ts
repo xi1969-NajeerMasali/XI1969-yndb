@@ -30,6 +30,8 @@ export class YnabService {
     console.log('serv payid', payeeId)
     return this.http.get(`${environment.baseUrl}/budgets/${budgetId}/payees/${payeeId}/transactions`);
   }
-
+  getPayeeDetails(budgetId: any, payeeId: any) {
+    return this.http.get(`${environment.baseUrl}/budgets/${budgetId}/payees/${payeeId}`);
+  }
 
 }

@@ -37,8 +37,28 @@ export class AllAccountsComponent implements OnInit {
       if(res && res.data && res.data.accounts){
         this.allAccounts = res.data.accounts;
       }
+      if(this.allAccounts) {
+        this.allAccounts.forEach(element => {
+          this.isDeleted = element.deleted;
+          let payeeId = element.transfer_payee_id;
+          if(payeeId) {
+            this.getPayeeName(this.budgetId, payeeId);
+          }
+        });
+      }
     })
   }
+
+  getPayeeName(budgetId, payeeId) {
+    this.allAccounts.forEach(element => {
+    this.ynabService.getPayeeDetails(budgetId,payeeId).subscribe((payee: any) => {
+      if(element.transfer_payee_id === payee.data.payee.id){
+        element.payeeName = payee.data.payee.name;
+      }
+      });
+    });
+  }
+
   createNewAccount(){
     this.formVisible = true
   }
